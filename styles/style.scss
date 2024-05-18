@@ -1,14 +1,113 @@
-/* variable HERE "MY MENU LOL */
+$primary-color: #ae8ba2;
+$secondary-color: #016069;
+$font-family: 'Arial, sans-serif';
+$spacing-unit: 10px;
 
-$primary-color: #1e90ff;
-$secondary-color: orange;
-$third-color: purple;
-$font-family: Arial, sans-serif;
+@mixin gradient($color1, $color2) {
+  background: linear-gradient(to right, $color1, $color2);
+}
+
+@mixin animations($name, $duration, $easing, $keyframes) {
+  @keyframes #{$name} {
+    @each $keyframe, $properties in $keyframes {
+      #{$keyframe} {
+        @each $property, $value in $properties {
+          #{$property}: #{$value};
+        }
+      }
+    }
+  }
+  animation: #{$name} #{$duration} #{$easing};
+}
+
+// Keyframes for fade-in animation
+$fade-in-keyframes: (
+  0%: (opacity: 0),
+  100%: (opacity: 1)
+);
+
+
+body {
+  @include gradient(#226795, #dd9ad2);
+  font-family: $font-family;
+  color: #333;
+  margin: 0;
+  padding: $spacing-unit;
+}
 
 h1 {
-    text-align: center;
-    margin-top: 20px;
-    font-family: $font-family;
+  color: $primary-color;
+  @include animations(fade-in, 2s, ease-in-out, $fade-in-keyframes);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $spacing-unit * 2;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.answers input,
+.answers button {
+  display: block;
+  width: 100%;
+  margin-bottom: $spacing-unit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.answers button {
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  cursor: pointer
+}
+
+// Variables
+$border-color: #000;
+$padding: 10px;
+$gap: 10px;
+$full-width: 100%;
+$margin-bottom: 10px;
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.answers {
+  input,
+  button {
+    display: block;
+    width: $full-width;
+    margin-bottom: $margin-bottom;
+  }
+}
+
+.split-container {
+  @include flex-container(row);
+  gap: $gap;
+}
+
+.statement-container,
+.cal-container {
+  flex: 1; 
+  border: 1px solid $border-color;
+  padding: $padding;
 }
 
 
+@mixin center-content {
+    justify-content: center;
+    display: flex;
+  }
+
+.budget-title {
+    @include center-content; 
+    font-size: 100px;
+    padding-bottom: 50px;
+}
+  

@@ -4,38 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Calculator</title>
+    <link href="styles/style.css" rel="style" >
+    <link href="styles/style.css" rel="stylesheet">
 </head>
 <body>
-    <header>Budget Calculator</header>
+    <header class="budget-title">Budget Calculator</header>
     <main>
-        <div class="cal-container">
-            <!-- This is where you display the numbers you pressed -->
-            <div class="answers">
-                <input type="text" id="description" placeholder="Description">
-                <input type="text" id="display" placeholder="Enter custom number">
-                <button id="add-income" type="button">Add Income</button>
-                <button id="add-expense" type="button">Add Expense</button>
-            </div>
-
-            <!-- This is where you do inputs with buttons -->
-            <div class="integers-container">
-                <button id="btn1" type="button" class="numbers">1</button>
-                <button id="btn2" type="button" class="numbers">2</button>
-                <button id="btn3" type="button" class="numbers">3</button>
-
-                <button id="btn4" type="button" class="numbers">4</button>
-                <button id="btn5" type="button" class="numbers">5</button>
-                <button id="btn6" type="button" class="numbers">6</button>
-
-                <button id="btn7" type="button" class="numbers">7</button>
-                <button id="btn8" type="button" class="numbers">8</button>
-                <button id="btn9" type="button" class="numbers">9</button>
-
-                <button id="btn0" type="button" class="numbers">0</button>
-                <button id="clear" type="button" class="key-calc">Clear</button>
-                <button id="delete" type="button" class="key-calc">Delete</button>
-            </div>
-
+        <div class="split-container">
             <div class="statement-container">
                 <div class="balance-container">
                     <!-- Total Balance ie. add/minus all transactions -->
@@ -45,8 +20,40 @@
                 <!-- Show past transactions -->
                 <div id="statements"></div>
             </div>
+            <div class="cal-container">
+                <!-- This is where you display the numbers you pressed -->
+    
+                <!-- This is where you do inputs with buttons -->
+                <div class="integers-container">
+    
+                    <div class="answers">
+                        <input type="text" id="description" placeholder="Description">
+                        <input type="text" id="display" placeholder="Enter custom number">
+                        <button id="add-income" type="button">Add Income</button>
+                        <button id="add-expense" type="button">Add Expense</button>
+                    </div>    
+    
+                    <button id="btn1" type="button" class="numbers">1</button>
+                    <button id="btn2" type="button" class="numbers">2</button>
+                    <button id="btn3" type="button" class="numbers">3</button>
+    
+                    <button id="btn4" type="button" class="numbers">4</button>
+                    <button id="btn5" type="button" class="numbers">5</button>
+                    <button id="btn6" type="button" class="numbers">6</button>
+    
+                    <button id="btn7" type="button" class="numbers">7</button>
+                    <button id="btn8" type="button" class="numbers">8</button>
+                    <button id="btn9" type="button" class="numbers">9</button>
+    
+                    <button id="btn0" type="button" class="numbers">0</button>
+                    <button id="clear" type="button" class="key-calc">Clear</button>
+                    <button id="delete" type="button" class="key-calc">Delete</button>
+                </div>
         </div>
+          
     </main>
     <script src="javascript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.11.1/sass.sync.min.js"></script>
+  <script src="scss.js"></script>
 </body>
 </html>

@@ -1,6 +1,75 @@
-/* variable HERE "MY MENU LOL */
+body {
+  background: linear-gradient(to right, #226795, #dd9ad2);
+  font-family: "Arial, sans-serif";
+  color: #333;
+  margin: 0;
+  padding: 10px;
+}
+
 h1 {
-  text-align: center;
-  margin-top: 20px;
-  font-family: Arial, sans-serif;
-}/*# sourceMappingURL=style.css.map */
+  color: #ae8ba2;
+  animation: fade-in 2s ease-in-out;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.answers input,
+.answers button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.answers button {
+  background-color: #ae8ba2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.answers input,
+.answers button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.split-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.statement-container,
+.cal-container {
+  flex: 1;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.budget-title {
+  justify-content: center;
+  display: flex;
+  font-size: 100px;
+  padding-bottom: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */
