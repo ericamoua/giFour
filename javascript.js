@@ -24,7 +24,7 @@
 
 class BudgetCalculator {
     constructor() {
-        // Get elements by ID's
+        // Get elements by ID's from html 
         this.statementsDiv = document.getElementById('statements');
         this.display = document.getElementById('display');
         this.descriptionInput = document.getElementById('description');
@@ -36,9 +36,11 @@ class BudgetCalculator {
         this.addExpenseButton = document.getElementById('add-expense');
 
         // Variables
+        // Initialize an empty string variable to store input
         this.inputString = "";
+        // Initialize an empty string variable to store input
         this.totalBalance = 0;
-
+        // Bind events (assuming there's a method or function called bindEvents() that handles event binding)
         this.bindEvents();
     }
 
@@ -87,33 +89,52 @@ class BudgetCalculator {
     }
 
     addIncome() {
+        // Retrieve description input and trim whitespace
         const description = this.descriptionInput.value.trim();
+        // Retrieve amount input and parse to float
         const amount = parseFloat(this.display.value);
 
+        // Check if both description and amount are valid
+
         if (description && !isNaN(amount) && amount > 0) {
+            // Add the amount to the total balance
             this.totalBalance += amount;
+            // Update the displayed balance
             this.updateBalance();
+            // Append a statement to the UI indicating the income
             this.appendStatement(description, amount, 'Income');
+            // Clear input fields
             this.clearInputs();
         } else {
+            // If description or amount is invalid, show an alert
             alert('Please enter a valid description and amount for income.');
         }
     }
 
     addExpense() {
+        // Retrieve description input and trim whitespace
         const description = this.descriptionInput.value.trim();
+        
+        // Retrieve amount input and parse to float
         const amount = parseFloat(this.display.value);
-
+    
+        // Check if both description and amount are valid
         if (description && !isNaN(amount) && amount > 0) {
+            // Subtract the amount from the total balance
             this.totalBalance -= amount;
+            // Update the displayed balance
             this.updateBalance();
+            // Append a statement to the UI indicating the expense
             this.appendStatement(description, amount, 'Expense');
+            // Clear input fields
             this.clearInputs();
         } else {
+            // If description or amount is invalid, show an alert
             alert('Please enter a valid description and amount for expense.');
         }
-    }
+    }    
 
+    // Function to append a new statement to the UI, including transaction type, description, and amount
     appendStatement(description, amount, type) {
         const newStatement = document.createElement('p');
         newStatement.textContent = `${type}: ${description} - ${amount.toFixed(2)}`;
